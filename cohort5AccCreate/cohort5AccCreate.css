@@ -1,0 +1,18 @@
+public with sharing class uiAccountHandler {
+    public uiAccountHandler() {
+
+    }
+
+    @AuraEnabled
+    public static string createAcc(String accName,String accPhone){
+        Account acc=new Account(Name=accName,Phone=accPhone);
+        try {
+            insert acc;
+            return acc.id;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+
+        
+    }
+}

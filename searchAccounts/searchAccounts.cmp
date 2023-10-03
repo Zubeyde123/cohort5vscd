@@ -1,0 +1,73 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-30-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,
+flexipage:availableForRecordHome,force:hasRecordId,
+forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="uiAccountHandler">
+
+<aura:attribute name="err" type="String" />
+<aura:attribute name="search" type="String" />
+<aura:attribute name="accountList" type="Account[]" />
+<aura:attribute name="columns" type="List"/>
+<aura:attribute name="isAccountFound" type="Boolean" default="False"/>
+
+
+
+
+<lightning:card variant="Narrow" title="Search Account" iconName="utility:search" footer="{!v.err}">
+       
+        <p class="slds-p-horizontal_small">
+
+          <lightning:input name="input2" label="Search Account by Name : " value="{!v.search}" 
+          onchange="{!c.cc_searchAccount}"/>  
+
+
+
+        </p>
+      </lightning:card>
+
+
+          <br/>
+
+          <aura:if isTrue="{!v.isAccountFound}">
+            
+          <lightning:card variant="Narrow" title="Search Account" iconName="standard:account">
+       
+          <p class="slds-p-horizontal_small">
+  
+  
+            <div style="height: 300px">
+              <lightning:datatable
+                      keyField="id"
+                      data="{! v.accountList }"
+                      columns="{! v.columns }"
+                      hideCheckboxColumn="true"/>
+          </div>
+            
+  
+          </p>
+        </lightning:card>
+
+
+
+            
+          </aura:if> 
+
+
+
+     
+         
+
+
+          
+          
+
+       
+
+
+
+</aura:component>	

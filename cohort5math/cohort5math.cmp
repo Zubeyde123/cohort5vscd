@@ -1,0 +1,48 @@
+<!--
+  @description       : 
+  @author            : Selçuk GÖKTAŞ
+  @group             : 
+  @last modified on  : 09-27-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<aura:component implements="force:appHostable,
+flexipage:availableForAllPageTypes,
+flexipage:availableForRecordHome,
+force:hasRecordId,
+forceCommunity:availableForAllPageTypes,
+force:lightningQuickAction" access="global" controller="uicalc">
+
+<aura:attribute name="numberx" type="decimal" />
+<aura:attribute name="numbery" type="decimal" />
+<aura:attribute name="result" type="String" />
+<lightning:card variant="Narrow" title="Calculator" iconName="utility:advanced_function" 
+footer="{!'Result : ' + v.result}">
+        <aura:set attribute="actions">
+            <lightning:buttonIcon iconName="utility:add" variant="border-filled" 
+            onclick="{!c.cc_sum}"
+            alternativeText="Show More"/>
+
+
+            <lightning:buttonIcon iconName="utility:dash" variant="border-filled" 
+            onclick="{!c.cc_sub}"
+            alternativeText="Show More"/>
+
+            <lightning:buttonIcon iconName="utility:close" variant="border-filled" 
+            onclick="{!c.cc_mul}"
+            alternativeText="Show More"/>
+
+            <lightning:buttonIcon iconName="utility:italic" variant="border-filled" 
+            onclick="{!c.cc_div}"
+            alternativeText="Show More"/>
+
+
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+          <lightning:input type="number" name="numberx" label="Number 1" value="{!v.numberx}" 
+          formatter="decimal" step="0.01"/>
+          <lightning:input type="number" name="numbery" label="Number 2" value="{!v.numbery}" 
+          formatter="decimal" step="0.01"/>
+        </p>
+    </lightning:card>
+
+</aura:component>	

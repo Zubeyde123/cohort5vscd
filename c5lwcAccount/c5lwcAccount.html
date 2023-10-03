@@ -1,0 +1,31 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-03-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template> 
+    <lightning-card  variant="Narrow"  title="Account" icon-name="standard:account">
+      
+      <p class="slds-p-horizontal_small">
+
+        <lightning-input type="text" label="Search Account" 
+        onchange={textChangeHandler}
+        value={searchTerm}></lightning-input>
+
+
+        <lightning-datatable
+        key-field="id"
+        data={acclist}
+        columns={columns}
+        onrowaction={handleRowAction}
+        
+        >
+        </lightning-datatable>
+  
+
+      </p>
+      <p slot="footer">Account List</p>
+    </lightning-card>
+</template>

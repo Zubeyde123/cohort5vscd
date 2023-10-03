@@ -1,0 +1,24 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-02-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  variant="Narrow"  title="Parent" icon-name="utility:activity">
+      <lightning-button-icon  icon-name="utility:arrow_bottom" variant="border-filled" alternative-text="Show More" slot="actions" 
+      onclick={changeChildMessageHandler}
+      
+      ></lightning-button-icon>
+      <p class="slds-p-horizontal_small">
+  
+        <!--  Child Component  -->
+        <c-childhello hellomessage="Hello Child How Are you"></c-childhello>
+  
+        <c-new-child-component hellomessage="Hello new child component" ></c-new-child-component>
+  
+      </p>
+      <p slot="footer">This is Parent Component</p>
+  </lightning-card>
+  </template>

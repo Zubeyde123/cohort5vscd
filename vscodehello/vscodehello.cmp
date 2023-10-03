@@ -1,0 +1,34 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-26-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<aura:component implements="force:appHostable,
+flexipage:availableForAllPageTypes,
+flexipage:availableForRecordHome,
+force:hasRecordId,
+forceCommunity:availableForAllPageTypes,
+force:lightningQuickAction" access="global">
+
+<aura:attribute name="hellomsg" type="String" />
+<aura:attribute name="clientControllerMsg" type="String" />
+
+
+
+
+
+<lightning:card variant="Narrow" title="VSCODE - HELLO" iconName="standard:account" footer="{!v.clientControllerMsg}">
+  <aura:set attribute="actions">
+      <lightning:buttonIcon iconName="utility:activity" 
+      variant="border-filled" alternativeText="Show More" onclick="{!c.changeText}" />
+  </aura:set>
+  <p class="slds-p-horizontal_small">
+
+      <lightning:input name="input2" label="Text field with predefined value" value="{!v.hellomsg}"/>
+  </p>
+</lightning:card>
+
+
+</aura:component>

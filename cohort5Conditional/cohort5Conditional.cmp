@@ -1,0 +1,53 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-29-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<aura:component implements="force:appHostable,
+flexipage:availableForAllPageTypes,
+flexipage:availableForRecordHome,
+force:hasRecordId,
+forceCommunity:availableForAllPageTypes,
+force:lightningQuickAction" access="global">
+
+<aura:attribute type="Boolean" name="isOpen" default="False"/>
+
+
+<lightning:card  title="Selection">
+        
+        <p class="slds-p-horizontal_small">
+
+            
+          <lightning:input type="toggle" label="On and Off" name="input2" checked="{!v.isOpen}"/>
+
+          <aura:iteration var="item"  items="Alex, Sergio,Rıza,Smith" >
+              <p>{!item} </p>
+          </aura:iteration>
+
+          <aura:iteration items="1,2,3,4,5" var="item">
+            <meter value="{!item / 5}"/><br/>
+          </aura:iteration>
+
+
+
+
+          <aura:if isTrue="{!v.isOpen}">
+          
+            <c:createcon></c:createcon>
+
+           
+
+
+            <aura:set attribute="else">
+              <c:cohort5math></c:cohort5math>
+            </aura:set>
+          </aura:if> 
+           
+        </p>
+    </lightning:card>
+
+
+
+</aura:component>

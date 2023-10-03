@@ -1,0 +1,48 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-02-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  variant="Narrow"  title="Calculator" icon-name="utility:palette">
+      <lightning-button-icon  name="sum" icon-name="utility:add" variant="border-filled" alternative-text="Show More" slot="actions"
+      onclick={calcHandler}></lightning-button-icon>
+  
+      <lightning-button-icon  name="sub" icon-name="utility:dash" variant="border-filled" alternative-text="Show More" slot="actions"
+      onclick={calcHandler}></lightning-button-icon>
+  
+      <lightning-button-icon  name="mul" icon-name="utility:close" variant="border-filled" alternative-text="Show More" slot="actions"
+      onclick={calcHandler}></lightning-button-icon>
+  
+      <lightning-button-icon  name="div" icon-name="utility:italic" variant="border-filled" alternative-text="Show More" slot="actions"
+      onclick={calcHandler}></lightning-button-icon>
+  
+  
+  
+  
+        <p class="slds-p-horizontal_small">
+            <lightning-input type="number" name="numx" label="Number 1" value={numberx}
+            onchange={onchangeHandler}></lightning-input>
+            <lightning-input type="number" name="numy" label="Number 2" value={numbery}
+            onchange={onchangeHandler}
+            
+            ></lightning-input>
+  
+  
+  
+  
+        </p>
+        <p slot="footer">Result : {result}</p>
+    </lightning-card>
+  
+  
+    <lightning-datatable
+    key-field="id"
+    data={calcHistory}
+    columns={columns}>
+  </lightning-datatable>
+  
+  
+  </template>

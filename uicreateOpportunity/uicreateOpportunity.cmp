@@ -1,0 +1,47 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-28-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<aura:component controller="uicontroller2" implements="force:appHostable,flexipage:availableForAllPageTypes,
+flexipage:availableForRecordHome,force:hasRecordId,
+forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+
+<aura:attribute name="singleOpportunity" type="Opportunity" default="{
+    'sobjectType':'Oppotunity',
+    'Name':'',
+    'CloseDate':'',
+    'StageName':'Prospecting'
+    
+    }" />
+
+    <aura:attribute name="Message" type="String" default="Opportunity Creation"/>
+    <aura:attribute name="opptid" type="String" />
+    <aura:attribute name="StageNameOptions" type="String[]" default="['Prospecting','Qualification',
+    'Needs Analysis','Value Proposition','Id. Decision Makers','Perception Analysis','Proposal/Price Quote',
+    'Negotiation/Review','Closed Won','Closed Lost']" />
+    <lightning:card variant="Narrow" title="Create Opportunity" iconName="standard:opportunity" footer="{!v.Message}">
+        <aura:set attribute="actions">
+            
+            <lightning:buttonIcon name="createOppButton" iconName="utility:create" variant="border-filled" alternativeText="Create Opportunity" onclick="{!c.createOpportunityController}"/>
+      
+        </aura:set>
+       
+        <p class="slds-p-horizontal_small">
+            
+            <lightning:input name="Name" label="Name" placeholder="type Opportunity name..." value="{!v.singleOpportunity.Name}" />
+<lightning:input type="date" name="CloseDate" label="CloseDate" placeholder="type Opportunity Close Date..." value="{!v.singleOpportunity.CloseDate}" />
+<lightning:select name="StageName" label="StageName" value="{!v.singleOpportunity.StageName}">
+    <aura:iteration items="{!v.StageNameOptions}" var="option">
+        <option value="{!option}">{!option}</option>
+    </aura:iteration>
+</lightning:select>
+      
+    
+        </p>
+    </lightning:card>
+    
+
+</aura:component>
